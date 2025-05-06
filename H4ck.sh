@@ -109,11 +109,11 @@ function proxy_menu() {
 function get_menu() {
   clear
    printf "+------------------------------------------------------+\n"
-    printf "|     1. 创建 Get 窗口      |     2. 运行 Get 程序     |\n"
+    printf "|     1. 创建 Get 窗口      |     2. 恢复 Get 窗口     |\n"
     printf "+------------------------------------------------------+\n"
-    printf "|     3. 恢复 Get 窗口      |     4. 销毁 Get 窗口     |\n"
+    printf "|     3. 销毁 Get 窗口      |     4. 克隆 Get 文件     |\n"
     printf "+------------------------------------------------------+\n"
-    printf "|     5. 克隆 Get 文件      |     0. 返回主菜单        |\n"
+    printf "|                    0. 返回主菜单                    |\n"
     printf "+------------------------------------------------------+\n"
   echo
   read -p "请选择: " choice
@@ -123,18 +123,14 @@ function get_menu() {
       screen -S GET
       ;;
     2)
-      echo "正在运行 Get..."
-      cd /root/Get && node Get.js
-      ;;
-    3)
       echo "正在恢复 Get 窗口..."
       screen -r GET
       ;;
-    4)
+    3)
       echo "正在销毁 Get 窗口..."
       screen -S GET -X quit
       ;;
-    5)
+    4)
       echo "正在克隆 Get 文件..."
       git clone https://github.com/H4ckChina/Get.git && rm -rf /root/Get/.git && rm -rf /root/Get/README.md && chmod +x /root/Get/Get.js
       ;;
