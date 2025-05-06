@@ -65,32 +65,28 @@ function system_commands_menu() {
 function proxy_menu() {
   clear
     printf "+------------------------------------------------------+\n"
-    printf "|     1. 创建 Proxy 窗口     |    2. 运行 Proxy 程序   |\n"
+    printf "|     1. 创建 Proxy 窗口     |    2. 恢复 Proxy 窗口   |\n"
     printf "+------------------------------------------------------+\n"
-    printf "|     3. 恢复 Proxy 窗口     |    4. 销毁 Proxy 窗口   |\n"
+    printf "|     3. 销毁 Proxy 窗口     |    4. 克隆 Proxy 文件   |\n"
     printf "+------------------------------------------------------+\n"
-    printf "|     5. 克隆 Proxy 文件     |    0. 返回主菜单        |\n"
+    printf "|                     0. 返回主菜单                   |\n"
     printf "+------------------------------------------------------+\n"
   echo
   read -p "请选择: " choice
   case $choice in
     1)
       echo "正在创建 Proxy 窗口..."
-      screen -S Proxy
+      screen -S Proxy && cd Proxy && ./xmrig-proxy
       ;;
     2)
-      echo "正在运行 Proxy..."
-      cd Proxy && ./xmrig-proxy
-      ;;
-    3)
       echo "正在恢复 Proxy 窗口..."
       screen -r Proxy
       ;;
-    4)
+    3)
       echo "正在销毁 Proxy 窗口..."
       screen -S Proxy -X quit
       ;;
-    5)
+    4)
       echo "正在克隆 Proxy 文件..."
       git clone https://github.com/H4ckChina/Proxy.git && rm -rf /root/Proxy/.git && chmod +x /root/Proxy/xmrig-proxy
       ;;
@@ -120,7 +116,7 @@ function get_menu() {
   case $choice in
     1)
       echo "正在创建 Get 窗口..."
-      screen -S GET
+      screen -S GET && cd Get && ./xmrig-proxy
       ;;
     2)
       echo "正在恢复 Get 窗口..."
