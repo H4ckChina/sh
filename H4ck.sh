@@ -189,13 +189,13 @@ function main_menu() {
   while true; do
     clear
     printf "+------------------------------------------------------+\n"
-    printf "|      H4ck China Sh       丨           v$sh_v         |\n" 
+    printf "| %-20s | %-20s |\n" "H4ck China Sh" "v$sh_v"
     printf "+------------------------------------------------------+\n"
-    printf "|      1. 系统命令         丨          2. Proxy       |\n" 
+    printf "| %-20s | %-20s |\n"      "1. 系统命令"  "2. Proxy"
     printf "+------------------------------------------------------+\n"
-    printf "|      3. Get              丨          4. Scan         |\n" 
+    printf "| %-20s | %-20s |\n"      "3. Get"      "4. Scan"
     printf "+------------------------------------------------------+\n"
-    printf "|                          丨          0. 退出         |\n" 
+    printf "| %-20s |\n"              "0. 退出"
     printf "+------------------------------------------------------+\n"
     echo 
     read -p "请选择菜单选项: " menuChoice
