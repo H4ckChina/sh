@@ -64,14 +64,14 @@ function system_commands_menu() {
 # Proxy 类菜单：包含创建、运行、恢复、销毁 Proxy 窗口
 function proxy_menu() {
   clear
-  echo "===== Proxy 操作 ====="
-  echo "1. 创建 Proxy 窗口"
-  echo "2. 运行 Proxy"
-  echo "3. 恢复 Proxy 窗口"
-  echo "4. 销毁 Proxy 窗口"
-  echo "----------------------"
-  echo "0. 返回主菜单"
-  echo "----------------------"
+    printf "+------------------------------------------------------+\n"
+    printf "|     1. 创建 Proxy 窗口     |    2. 运行 Proxy 程序    |\n"
+    printf "+------------------------------------------------------+\n"
+    printf "|     3. 恢复 Proxy 窗口     |    4. 销毁 Proxy 窗口    |\n"
+    printf "+------------------------------------------------------+\n"
+    printf "|                     0. 返回主菜单                    |\n"
+    printf "+------------------------------------------------------+\n"
+  echo
   read -p "请输入选项: " choice
   case $choice in
     1)
