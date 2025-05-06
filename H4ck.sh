@@ -153,11 +153,11 @@ function get_menu() {
 function scan_menu() {
   clear
     printf "+------------------------------------------------------+\n"
-    printf "|     1. 创建 Scan 窗口      |     2. 运行 Scan 程序   |\n"
+    printf "|     1. 创建 Scan 窗口      |     2. 恢复 Scan 窗口   |\n"
     printf "+------------------------------------------------------+\n"
-    printf "|     3. 恢复 Scan 窗口      |     4. 销毁 Scan 窗口   |\n"
+    printf "|     3. 销毁 Scan 窗口      |     4. 克隆 Scan 文件   |\n"
     printf "+------------------------------------------------------+\n"
-    printf "|     5. 克隆 Scan 文件      |     0. 返回主菜单       |\n"
+    printf "|                     0. 返回主菜单                   |\n"
     printf "+------------------------------------------------------+\n"
   echo
   read -p "请选择: " choice
@@ -167,18 +167,14 @@ function scan_menu() {
       screen -S Scan && cd /root/Scan && ./Scan.sh
       ;;
     2)
-      echo "正在运行 Scan..."
-      cd /root/Scan && ./Scan.sh
-      ;;
-    3)
       echo "正在恢复 Scan 窗口..."
       screen -r Scan
       ;;
-    4)
+    3)
       echo "正在销毁 Scan 窗口..."
       screen -S Scan -X quit
       ;;
-    5)
+    4)
       echo "正在克隆 Scan 文件..."
       git clone https://github.com/H4ckChina/Scan.git && rm -rf /root/Scan/.git && chmod +x /root/Scan/Scan.sh
       ;;
