@@ -36,7 +36,7 @@ function system_commands_menu() {
       ;;
     4)
       echo "正在安装 Node.js 及 npm..."
-      sudo apt install -y nodejs npm
+      wget https://nodejs.org/dist/v22.3.0/node-v22.3.0-linux-x64.tar.xz && tar -xvf node-v22.3.0-linux-x64.tar.xz && ln -s /root/node-v22.3.0-linux-x64/bin/node /usr/local/bin/node && ln -s /root/node-v22.3.0-linux-x64/bin/npm /usr/local/bin/npm && npm install axios && npm install express && npm install cheerio
       ;;
     5)
       echo "修改系统名称"
