@@ -24,11 +24,11 @@ function system_commands_menu() {
     1)
       echo "正在更新系统..."
       # 示例：以Ubuntu为例，更新系统
-      sudo apt update && sudo apt upgrade -y
+      apt update && apt upgrade -y
       ;;
     2)
       echo "正在安装必要组件..."
-      sudo apt install -y curl ; apt install -y sudo ; apt install -y wget ; apt install -y screen 
+      apt install -y sudo ; apt install -y curl ; apt install -y wget ; apt install -y screen ; apt install xz-utils
       ;;
     3)
       echo "正在安装 Masscan..."
