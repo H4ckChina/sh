@@ -1,4 +1,5 @@
 #!/bin/bash
+sh_v="1.0.0"
 # 定义一个暂停函数，用于在操作完成后等待用户按键
 function pause(){
   read -p "按任意键继续..." -n1 -s
@@ -8,7 +9,7 @@ function pause(){
 # 系统命令菜单：包含系统更新、组件安装、安装Masscan、安装Node、修改名称、修改密码、重启系统
 function system_commands_menu() {
   clear
-  echo "==== 系统命令 ===="
+  echo "======= 系统命令 ======="
   echo "1. 系统更新"
   echo "2. 组件安装"
   echo "3. 安装 Masscan"
@@ -16,6 +17,7 @@ function system_commands_menu() {
   echo "5. 修改名称"
   echo "6. 修改密码"
   echo "7. 重启系统"
+  echo "----------------------"
   echo "0. 返回主菜单"
   echo "----------------------"
   read -p "请输入选项: " option
@@ -65,11 +67,12 @@ function system_commands_menu() {
 # Proxy 类菜单：包含创建、运行、恢复、销毁 Proxy 窗口
 function proxy_menu() {
   clear
-  echo "==== Proxy 操作 ===="
+  echo "===== Proxy 操作 ====="
   echo "1. 创建 Proxy 窗口"
   echo "2. 运行 Proxy"
   echo "3. 恢复 Proxy 窗口"
   echo "4. 销毁 Proxy 窗口"
+  echo "----------------------"
   echo "0. 返回主菜单"
   echo "----------------------"
   read -p "请输入选项: " choice
@@ -107,11 +110,12 @@ function proxy_menu() {
 # Get 类菜单：包含创建、运行、恢复、销毁 Get 窗口
 function get_menu() {
   clear
-  echo "==== Get 操作 ===="
+  echo "====== Get 操作 ======"
   echo "1. 创建 Get 窗口"
   echo "2. 运行 Get"
   echo "3. 恢复 Get 窗口"
   echo "4. 销毁 Get 窗口"
+  echo "----------------------"
   echo "0. 返回主菜单"
   echo "----------------------"
   read -p "请输入选项: " choice
@@ -146,11 +150,12 @@ function get_menu() {
 # Scan 类菜单：包含创建、运行、恢复、销毁 Scan 窗口
 function scan_menu() {
   clear
-  echo "==== Scan 操作 ===="
+  echo "====== Scan 操作 ======"
   echo "1. 创建 Scan 窗口"
   echo "2. 运行 Scan"
   echo "3. 恢复 Scan 窗口"
   echo "4. 销毁 Scan 窗口"
+  echo "----------------------"
   echo "0. 返回主菜单"
   echo "----------------------"
   read -p "请输入选项: " choice
@@ -186,11 +191,16 @@ function scan_menu() {
 function main_menu() {
   while true; do
     clear
-    echo "==== 主菜单 ===="
+    printf "+------------------------------------------------------+\n"
+    printf "|      H4ck China Sh       丨           v$sh_v         |\n" 
+    printf "+------------------------------------------------------+\n"
+    echo 
+    echo "======= 主菜单 ======="
     echo "1. 系统命令"
     echo "2. Proxy"
     echo "3. Get"
     echo "4. Scan"
+    cho "----------------------"
     echo "0. 退出"
     echo "----------------------"
     read -p "请选择菜单选项: " menuChoice
