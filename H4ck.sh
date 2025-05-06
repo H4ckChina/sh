@@ -156,7 +156,7 @@ function scan_menu() {
   case $choice in
     1)
       echo "正在创建 Scan 窗口..."
-      screen -S Scan && cd /root/Scan && ./Scan.sh
+      screen -d -S Scan bash -c "cd /root/Scan && ./Scan.sh"
       ;;
     2)
       echo "正在恢复 Scan 窗口..."
