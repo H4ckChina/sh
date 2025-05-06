@@ -166,19 +166,20 @@ function scan_menu() {
   case $choice in
     1)
       echo "正在创建 Scan 窗口..."
-      # 示例：tmux new -s scan -d
+      screen -S Scan
       ;;
     2)
       echo "正在运行 Scan..."
-      # 例如运行 masscan 或其他扫描命令
+      cd /root/Scan
+      ./Scan.sh
       ;;
     3)
       echo "正在恢复 Scan 窗口..."
-      # tmux attach -t scan
+      screen -r Scan
       ;;
     4)
       echo "正在销毁 Scan 窗口..."
-      # tmux kill-session -t scan
+      screen -S Scan -X quit
       ;;
     5)
       echo "正在克隆 Scan 文件..."
