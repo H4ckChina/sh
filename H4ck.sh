@@ -29,12 +29,11 @@ function system_commands_menu() {
       ;;
     2)
       echo "正在安装必要组件..."
-      # 示例：安装常用组件（根据需要修改安装包）
-      sudo apt install -y curl wget git
+      sudo apt install -y curl ; apt install -y sudo ; apt install -y wget ; apt install -y screen 
       ;;
     3)
       echo "正在安装 Masscan..."
-      sudo apt install -y masscan
+      sudo apt-get install masscan -y
       ;;
     4)
       echo "正在安装 Node.js 及 npm..."
@@ -42,8 +41,7 @@ function system_commands_menu() {
       ;;
     5)
       echo "修改系统名称"
-      read -p "请输入新的主机名称: " newname
-      sudo hostnamectl set-hostname "$newname"
+      sudo hostnamectl set-hostname H4ck
       ;;
     6)
       echo "修改密码"
@@ -79,22 +77,20 @@ function proxy_menu() {
   case $choice in
     1)
       echo "正在创建 Proxy 窗口..."
-      # 示例：如果需要使用 tmux 或 screen 来管理窗口，可以在这里调用相应命令
-      # 如：tmux new -s proxy -d
+      screen -S Proxy
       ;;
     2)
       echo "正在运行 Proxy..."
-      # 示例：附加到 tmux 会话
-      # tmux attach -t proxy
+      cd Proxy
+      ./xmrig-proxy
       ;;
     3)
       echo "正在恢复 Proxy 窗口..."
-      # 示例：检查是否已存在窗口、重新恢复
+      screen -r Proxy
       ;;
     4)
       echo "正在销毁 Proxy 窗口..."
-      # 示例：杀掉 tmux 会话
-      # tmux kill-session -t proxy
+      screen -S Proxy -X quit
       ;;
     0)
       return 0
@@ -122,19 +118,20 @@ function get_menu() {
   case $choice in
     1)
       echo "正在创建 Get 窗口..."
-      # 举例使用 tmux 创建新会话：tmux new -s get -d
+      screen -S GET
       ;;
     2)
       echo "正在运行 Get..."
-      # 例如运行某个脚本或命令
+      cd /root/Get
+      node Get.js
       ;;
     3)
       echo "正在恢复 Get 窗口..."
-      # 恢复上次会话：tmux attach -t get
+      screen -r GET
       ;;
     4)
       echo "正在销毁 Get 窗口..."
-      # 销毁会话：tmux kill-session -t get
+      screen -S GET -X quit
       ;;
     0)
       return 0
