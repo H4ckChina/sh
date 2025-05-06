@@ -80,8 +80,7 @@ function proxy_menu() {
       ;;
     2)
       echo "正在运行 Proxy..."
-      cd Proxy
-      ./xmrig-proxy
+      cd Proxy && ./xmrig-proxy
       ;;
     3)
       echo "正在恢复 Proxy 窗口..."
@@ -125,8 +124,7 @@ function get_menu() {
       ;;
     2)
       echo "正在运行 Get..."
-      cd /root/Get
-      node Get.js
+      cd /root/Get && node Get.js
       ;;
     3)
       echo "正在恢复 Get 窗口..."
@@ -170,8 +168,7 @@ function scan_menu() {
       ;;
     2)
       echo "正在运行 Scan..."
-      cd /root/Scan
-      ./Scan.sh
+      cd /root/Scan && ./Scan.sh
       ;;
     3)
       echo "正在恢复 Scan 窗口..."
