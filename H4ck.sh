@@ -200,7 +200,7 @@ function main_menu() {
     echo "2. Proxy"
     echo "3. Get"
     echo "4. Scan"
-    cho "----------------------"
+    echo "----------------------"
     echo "0. 退出"
     echo "----------------------"
     read -p "请选择菜单选项: " menuChoice
