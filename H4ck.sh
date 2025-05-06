@@ -76,7 +76,7 @@ function proxy_menu() {
   case $choice in
     1)
       echo "正在创建 Proxy 窗口..."
-      screen -S Proxy && cd /root/Proxy && ./xmrig-proxy
+      screen -d -m -S Proxy bash -c "cd /root/Proxy && ./xmrig-proxy"
       ;;
     2)
       echo "正在恢复 Proxy 窗口..."
@@ -116,7 +116,7 @@ function get_menu() {
   case $choice in
     1)
       echo "正在创建 Get 窗口..."
-      screen -S GET && cd /root/Get && node Get.js
+      screen -d -m -S Get bash -c "cd /root/Get && node Get.js"
       ;;
     2)
       echo "正在恢复 Get 窗口..."
@@ -156,7 +156,7 @@ function scan_menu() {
   case $choice in
     1)
       echo "正在创建 Scan 窗口..."
-      screen -d -S Scan bash -c "cd /root/Scan && ./Scan.sh"
+      screen -d -m -S Scan bash -c "cd /root/Scan && ./Scan.sh"
       ;;
     2)
       echo "正在恢复 Scan 窗口..."
