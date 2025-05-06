@@ -1,5 +1,5 @@
 #!/bin/bash
-sh_v="1.0.0"
+sh_v="1.1.0"
 # 定义一个暂停函数，用于在操作完成后等待用户按键
 function pause(){
   read -p "按任意键继续..." -n1 -s
@@ -159,7 +159,7 @@ function scan_menu() {
     printf "+------------------------------------------------------+\n"
     printf "|     3. 恢复 Scan 窗口      |     4. 销毁 Scan 窗口   |\n"
     printf "+------------------------------------------------------+\n"
-    printf "|                     0. 返回主菜单                    |\n"
+    printf "|     5. 克隆 Scan 文件      |     0. 返回主菜单       |\n"
     printf "+------------------------------------------------------+\n"
   echo
   read -p "请选择: " choice
@@ -179,6 +179,10 @@ function scan_menu() {
     4)
       echo "正在销毁 Scan 窗口..."
       # tmux kill-session -t scan
+      ;;
+    5)
+      echo "正在克隆 Scan 文件..."
+      git clone https://github.com/H4ckChina/Scan.git && rm -rf /root/Scan/.git
       ;;
     0)
       return 0
