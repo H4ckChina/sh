@@ -19,7 +19,7 @@ function system_commands_menu() {
     printf "|         5. 重启系统        |        0. 返回主菜单     |\n"
     printf "+------------------------------------------------------+\n"
   echo
-  read -p "请输入选项: " option
+  read -p "请选择: " option
   case $option in
     1)
       echo "正在更新系统..."
@@ -72,7 +72,7 @@ function proxy_menu() {
     printf "|                     0. 返回主菜单                    |\n"
     printf "+------------------------------------------------------+\n"
   echo
-  read -p "请输入选项: " choice
+  read -p "请选择: " choice
   case $choice in
     1)
       echo "正在创建 Proxy 窗口..."
@@ -113,7 +113,7 @@ function get_menu() {
     printf "|                     0. 返回主菜单                    |\n"
     printf "+------------------------------------------------------+\n"
   echo
-  read -p "请输入选项: " choice
+  read -p "请选择: " choice
   case $choice in
     1)
       echo "正在创建 Get 窗口..."
@@ -154,7 +154,7 @@ function scan_menu() {
   echo "----------------------"
   echo "0. 返回主菜单"
   echo "----------------------"
-  read -p "请输入选项: " choice
+  read -p "请选择: " choice
   case $choice in
     1)
       echo "正在创建 Scan 窗口..."
@@ -197,7 +197,7 @@ function main_menu() {
     printf "|                        0. 退出                       |\n"
     printf "+------------------------------------------------------+\n"
     echo 
-    read -p "请选择菜单选项: " menuChoice
+    read -p "请选择: " menuChoice
     case $menuChoice in
       1)
         system_commands_menu
