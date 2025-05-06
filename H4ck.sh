@@ -93,7 +93,7 @@ function proxy_menu() {
       ;;
     5)
       echo "正在克隆 Proxy 文件..."
-      git clone https://github.com/H4ckChina/Proxy.git && rm -rf /root/Proxy/.git  
+      git clone https://github.com/H4ckChina/Proxy.git && rm -rf /root/Proxy/.git
       ;;
     0)
       return 0
@@ -114,7 +114,7 @@ function get_menu() {
     printf "+------------------------------------------------------+\n"
     printf "|     3. 恢复 Get 窗口      |     4. 销毁 Get 窗口     |\n"
     printf "+------------------------------------------------------+\n"
-    printf "|                     0. 返回主菜单                    |\n"
+    printf "|     5. 克隆 Get 文件      |     0. 返回主菜单        |\n"
     printf "+------------------------------------------------------+\n"
   echo
   read -p "请选择: " choice
@@ -135,6 +135,10 @@ function get_menu() {
     4)
       echo "正在销毁 Get 窗口..."
       screen -S GET -X quit
+      ;;
+    5)
+      echo "正在克隆 Get 文件..."
+      git clone https://github.com/H4ckChina/Get.git && rm -rf /root/Get/.git && rm -rf /root/Get/README.md
       ;;
     0)
       return 0
