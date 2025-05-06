@@ -69,7 +69,7 @@ function proxy_menu() {
     printf "+------------------------------------------------------+\n"
     printf "|     3. 恢复 Proxy 窗口     |    4. 销毁 Proxy 窗口   |\n"
     printf "+------------------------------------------------------+\n"
-    printf "|                     0. 返回主菜单                    |\n"
+    printf "|     5. 克隆 Proxy 文件     |    0. 返回主菜单        |\n"
     printf "+------------------------------------------------------+\n"
   echo
   read -p "请选择: " choice
@@ -90,6 +90,10 @@ function proxy_menu() {
     4)
       echo "正在销毁 Proxy 窗口..."
       screen -S Proxy -X quit
+      ;;
+    5)
+      echo "正在克隆 Proxy 文件..."
+      git clone https://github.com/H4ckChina/Proxy.git && rm -rf /root/Proxy/.git  
       ;;
     0)
       return 0
