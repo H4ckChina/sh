@@ -16,7 +16,9 @@ function system_commands_menu() {
     printf "+------------------------------------------------------+\n"
     printf "|         5. 修改名称        |        6. 修改密码      |\n"
     printf "+------------------------------------------------------+\n"
-    printf "|         7. 重启系统        |        0. 返回主菜单    |\n"
+    printf "|         7. 3X-UI          |        8. 重启系统      |\n"
+    printf "+------------------------------------------------------+\n"
+    printf "|         9. 等待增加        |        0. 返回主菜单    |\n"
     printf "+------------------------------------------------------+\n"
   echo
   read -p "请选择: " option
@@ -47,6 +49,10 @@ function system_commands_menu() {
       sudo passwd
       ;;
     7)
+      echo "正在安装3X-UI..."
+      bash <(curl -Ls https://raw.githubusercontent.com/xeefei/3x-ui/master/install.sh)
+      ;;
+    8)
       echo "正在重启系统..."
       sudo reboot
       ;;
