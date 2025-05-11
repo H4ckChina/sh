@@ -88,7 +88,7 @@ function proxy_menu() {
       ;;
     4)
       echo "正在克隆 Proxy 文件..."
-      git clone https://github.com/H4ckChina/Proxy.git && rm -rf /root/Proxy/.git && chmod +w +x /root/Proxy/xmrig-proxy
+      git clone https://github.com/H4ckChina/Proxy.git && rm -rf /root/Proxy/.git && chmod +wx /root/Proxy/xmrig-proxy
       ;;
     0)
       return 0
@@ -128,7 +128,7 @@ function get_menu() {
       ;;
     4)
       echo "正在克隆 Get 文件..."
-      git clone https://github.com/H4ckChina/Get.git && rm -rf /root/Get/.git && rm -rf /root/Get/README.md && chmod +w +x /root/Get/Get.js
+      git clone https://github.com/H4ckChina/Get.git && rm -rf /root/Get/.git && rm -rf /root/Get/README.md && chmod +wx /root/Get/Get.js
       ;;
     0)
       return 0
@@ -168,7 +168,7 @@ function scan_menu() {
       ;;
     4)
       echo "正在克隆 Scan 文件..."
-      git clone https://github.com/H4ckChina/Scan.git && rm -rf /root/Scan/.git && chmod +w +x /root/Scan/Scan.sh
+      git clone https://github.com/H4ckChina/Scan.git && rm -rf /root/Scan/.git && chmod +wx /root/Scan/Scan.sh
       ;;
     0)
       return 0
