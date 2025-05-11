@@ -126,11 +126,11 @@ function get_menu() {
       ;;
     2)
       echo "正在恢复 Get 窗口..."
-      screen -r GET
+      screen -r Get
       ;;
     3)
       echo "正在销毁 Get 窗口..."
-      screen -S GET -X quit
+      screen -S Get -X quit
       ;;
     4)
       echo "正在克隆 Get 文件..."
