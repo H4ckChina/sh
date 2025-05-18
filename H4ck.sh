@@ -46,7 +46,11 @@ function system_commands_menu() {
       ;;
     6)
       echo "正在安装BBR..."
-      wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
+      if [ ! -f /root/tcp.sh ]; then
+      wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" -O /root/tcp.sh
+      chmod +x /root/tcp.sh
+      fi
+      cd /root && ./tcp.sh
       ;;
     7)
       echo "修改系统名称"
