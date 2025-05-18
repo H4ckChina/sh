@@ -14,9 +14,9 @@ function system_commands_menu() {
     printf "+------------------------------------------------------+\n"
     printf "|         3. 安装 Massca     |        4. 安装 Node     |\n"
     printf "+------------------------------------------------------+\n"
-    printf "|         5. 修改名称        |        6. 修改密码      |\n"
+    printf "|         5. 安装3X-UI       |        6. 安装BBR       |\n"
     printf "+------------------------------------------------------+\n"
-    printf "|         7. 3X-UI           |        8. 安装BBR      |\n"
+    printf "|         7. 修改名称        |        8. 修改密码      |\n"
     printf "+------------------------------------------------------+\n"
     printf "|         9. 重启系统        |        0. 返回主菜单    |\n"
     printf "+------------------------------------------------------+\n"
@@ -41,20 +41,20 @@ function system_commands_menu() {
       wget https://nodejs.org/dist/v22.3.0/node-v22.3.0-linux-x64.tar.xz && tar -xvf node-v22.3.0-linux-x64.tar.xz && ln -s /root/node-v22.3.0-linux-x64/bin/node /usr/local/bin/node && ln -s /root/node-v22.3.0-linux-x64/bin/npm /usr/local/bin/npm && npm install axios && npm install express && npm install cheerio
       ;;
     5)
-      echo "修改系统名称"
-      sudo hostnamectl set-hostname H4ck
-      ;;
-    6)
-      echo "修改密码"
-      sudo passwd
-      ;;
-    7)
       echo "正在安装3X-UI..."
       bash <(curl -Ls https://raw.githubusercontent.com/xeefei/3x-ui/master/install.sh)
       ;;
-    8)
+    6)
       echo "正在安装BBR..."
       wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
+      ;;
+    7)
+      echo "修改系统名称"
+      sudo hostnamectl set-hostname H4ck
+      ;;
+    8)
+      echo "修改密码"
+      sudo passwd
       ;;
     9)
       echo "正在重启系统..."
