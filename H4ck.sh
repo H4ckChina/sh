@@ -30,7 +30,7 @@ function system_commands_menu() {
       ;;
     2)
       echo "正在安装必要组件..."
-      apt install -y sudo ; apt install -y curl ; apt install -y wget ; apt install -y screen ; apt install xz-utils
+      apt install -y sudo ; apt install -y curl ; apt install -y wget ; apt install -y screen ; apt install xz-utils ; apt install -y git
       ;;
     3)
       echo "正在安装 Masscan..."
