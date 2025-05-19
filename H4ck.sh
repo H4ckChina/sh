@@ -90,7 +90,7 @@ function proxy_menu() {
   case $choice in
     1)
       echo "正在创建 Proxy 窗口..."
-      screen -d -m -S Proxy bash -c "cd /root/Proxy && ./xmrig-proxy -c config.json --log-file=debug.log"
+      screen -d -m -S Proxy bash -c "cd /root/Proxy && ./xmrig-proxy"
       ;;
     2)
       echo "正在恢复 Proxy 窗口..."
