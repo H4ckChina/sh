@@ -191,20 +191,25 @@ function scan_menu() {
       ulimit -u 65535
       ulimit -s 65536
       # 写入 sysctl 配置
-      echo "net.ipv4.tcp_max_syn_backlog = 65536" >> /etc/sysctl.conf
-      echo "net.core.netdev_max_backlog = 65536" >> /etc/sysctl.conf
-      echo "net.ipv4.tcp_synack_retries = 2" >> /etc/sysctl.conf
-      echo "net.ipv4.tcp_fin_timeout = 15" >> /etc/sysctl.conf
-      echo "net.ipv4.tcp_keepalive_time = 600" >> /etc/sysctl.conf
-      echo "net.ipv4.tcp_tw_reuse = 1" >> /etc/sysctl.conf
-      echo "net.ipv4.ip_local_port_range = 1024 65535" >> /etc/sysctl.conf
-      echo "net.core.rmem_max = 16777216" >> /etc/sysctl.conf
-      echo "net.core.wmem_max = 16777216" >> /etc/sysctl.conf
-      echo "net.ipv4.tcp_rmem = 4096 87380 16777216" >> /etc/sysctl.conf
-      echo "net.ipv4.tcp_wmem = 4096 65536 16777216" >> /etc/sysctl.conf
-      echo "net.core.somaxconn = 65535" >> /etc/sysctl.conf
-      echo "fs.file-max = 2097152" >> /etc/sysctl.conf
-      echo "net.ipv4.tcp_slow_start_after_idle = 0" >> /etc/sysctl.conf
+      add_sysctl_param() {
+      local key=$1
+      local value=$2
+      grep -q "^$key[[:space:]]*=" /etc/sysctl.conf
+      }
+      add_sysctl_param "net.ipv4.tcp_max_syn_backlog" "65536"
+      add_sysctl_param "net.core.netdev_max_backlog" "65536"
+      add_sysctl_param "net.ipv4.tcp_synack_retries" "2"
+      add_sysctl_param "net.ipv4.tcp_fin_timeout" "15"
+      add_sysctl_param "net.ipv4.tcp_keepalive_time" "600"
+      add_sysctl_param "net.ipv4.tcp_tw_reuse" "1"
+      add_sysctl_param "net.ipv4.ip_local_port_range" "1024 65535"
+      add_sysctl_param "net.core.rmem_max" "16777216"
+      add_sysctl_param "net.core.wmem_max" "16777216"
+      add_sysctl_param "net.ipv4.tcp_rmem" "4096 87380 16777216"
+      add_sysctl_param "net.ipv4.tcp_wmem" "4096 65536 16777216"
+      add_sysctl_param "net.core.somaxconn" "65535"
+      add_sysctl_param "fs.file-max" "2097152"
+      add_sysctl_param "net.ipv4.tcp_slow_start_after_idle" "0"
       # 使修改生效
       sysctl -p
       ;;
