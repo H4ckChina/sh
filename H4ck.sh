@@ -186,6 +186,10 @@ function scan_menu() {
       ;;
     5)
       echo "正在优化系统..."
+      # 配置 ulimit
+      ulimit -n 1000000
+      ulimit -u 65535
+      ulimit -s 65536
       # 写入 sysctl 配置
       echo "net.ipv4.tcp_max_syn_backlog = 65536" >> /etc/sysctl.conf
       echo "net.core.netdev_max_backlog = 65536" >> /etc/sysctl.conf
