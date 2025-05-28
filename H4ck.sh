@@ -163,7 +163,7 @@ function scan_menu() {
     printf "+------------------------------------------------------+\n"
     printf "|     3. 销毁 Scan 窗口      |     4. 克隆 Scan 文件   |\n"
     printf "+------------------------------------------------------+\n"
-    printf "|                     0. 返回主菜单                    |\n"
+    printf "|     5. 系统优化            |     0. 返回主菜单       |\n"
     printf "+------------------------------------------------------+\n"
   echo
   read -p "请选择: " choice
@@ -183,6 +183,27 @@ function scan_menu() {
     4)
       echo "正在克隆 Scan 文件..."
       git clone https://github.com/H4ckChina/Scan.git && rm -rf /root/Scan/.git && chmod +wx /root/Scan/Scan.sh
+      ;;
+    5)
+      echo "正在优化系统..."
+      # 写入 sysctl 配置
+      echo "net.ipv4.tcp_max_syn_backlog = 65536" >> /etc/sysctl.conf
+      echo "net.core.netdev_max_backlog = 65536" >> /etc/sysctl.conf
+      echo "net.ipv4.tcp_synack_retries = 2" >> /etc/sysctl.conf
+      echo "net.ipv4.tcp_fin_timeout = 15" >> /etc/sysctl.conf
+      echo "net.ipv4.tcp_keepalive_time = 600" >> /etc/sysctl.conf
+      echo "net.ipv4.tcp_tw_reuse = 1" >> /etc/sysctl.conf
+      echo "net.ipv4.tcp_tw_recycle = 1" >> /etc/sysctl.conf
+      echo "net.ipv4.ip_local_port_range = 1024 65535" >> /etc/sysctl.conf
+      echo "net.core.rmem_max = 16777216" >> /etc/sysctl.conf
+      echo "net.core.wmem_max = 16777216" >> /etc/sysctl.conf
+      echo "net.ipv4.tcp_rmem = 4096 87380 16777216" >> /etc/sysctl.conf
+      echo "net.ipv4.tcp_wmem = 4096 65536 16777216" >> /etc/sysctl.conf
+      echo "net.core.somaxconn = 65535" >> /etc/sysctl.conf
+      echo "fs.file-max = 2097152" >> /etc/sysctl.conf
+      echo "net.ipv4.tcp_slow_start_after_idle = 0" >> /etc/sysctl.conf
+      # 使修改生效
+      sysctl -p
       ;;
     0)
       return 0
