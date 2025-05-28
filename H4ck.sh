@@ -194,7 +194,11 @@ function scan_menu() {
       add_sysctl_param() {
       local key=$1
       local value=$2
-      grep -q "^$key[[:space:]]*=" /etc/sysctl.conf
+      if grep -q "^$key" /etc/sysctl.conf; then
+      sed -i "s/^$key.*/$key = $value/" /etc/sysctl.conf
+      else
+      echo "$key = $value" >> /etc/sysctl.conf
+      fi
       }
       add_sysctl_param "net.ipv4.tcp_max_syn_backlog" "65536"
       add_sysctl_param "net.core.netdev_max_backlog" "65536"
