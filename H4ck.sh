@@ -26,7 +26,8 @@ function system_commands_menu() {
     1)
       echo "正在更新系统..."
       # 示例：以Ubuntu为例，更新系统
-      sed -i 's|http://.*archive.ubuntu.com|http://mirrors.aliyun.com|g' /etc/apt/sources.list
+      sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
+      sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
       apt update && apt upgrade -y
       ;;
     2)
