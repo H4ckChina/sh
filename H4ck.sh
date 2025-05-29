@@ -26,18 +26,9 @@ function system_commands_menu() {
     1)
       echo "正在更新系统..."
       # 示例：以Ubuntu为例，更新系统
-      sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
-      sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
-      # 使用正确的阿里云镜像源配置
-      sudo tee /etc/apt/sources.list <<-'EOF'
-      deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
-      deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
-      deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
-      deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
-      EOF
       # 清理缓存并更新
-      sudo apt clean
-      sudo rm -rf /var/lib/apt/lists/*
+      apt clean
+      rm -rf /var/lib/apt/lists/*
       apt update && apt upgrade -y
       ;;
     2)
