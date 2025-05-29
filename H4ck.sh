@@ -26,6 +26,7 @@ function system_commands_menu() {
     1)
       echo "正在更新系统..."
       # 示例：以Ubuntu为例，更新系统
+      sed -i 's|http://.*archive.ubuntu.com|http://mirrors.aliyun.com|g' /etc/apt/sources.list
       apt update && apt upgrade -y
       ;;
     2)
