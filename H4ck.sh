@@ -30,8 +30,8 @@ function system_commands_menu() {
       sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
       # 执行全面替换（包括注释行）
       sudo sed -i \
-      -e 's|http://[a-z]*\.archive\.ubuntu\.com/ubuntu/|http://mirrors.cloudflare.com/ubuntu/|g' \
-      -e 's|http://security\.ubuntu\.com/ubuntu|http://mirrors.cloudflare.com/ubuntu/|g' \
+      -e 's|http://[a-zA-Z0-9.-]*\.archive\.ubuntu\.com/ubuntu/|http://ap-southeast-1.ec2.archive.ubuntu.com/ubuntu/|g' \
+      -e 's|http://security\.ubuntu\.com/ubuntu|http://ap-southeast-1.ec2.archive.ubuntu.com/ubuntu|g' \
       /etc/apt/sources.list
       # 清理缓存并更新
       apt clean
