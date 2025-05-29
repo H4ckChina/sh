@@ -26,6 +26,9 @@ function system_commands_menu() {
     1)
       echo "正在更新系统..."
       # 示例：以Ubuntu为例，更新系统
+      sudo cp -a /etc/apt/sources.list /etc/apt/sources.list.bak
+      sudo sed -i "s@http://.*archive.ubuntu.com@https://mirrors.aliyun.com/@g" /etc/apt/sources.list
+      sudo sed -i "s@http://.*security.ubuntu.com@https://mirrors.aliyun.com/@g" /etc/apt/sources.list
       # 清理缓存并更新
       apt clean
       rm -rf /var/lib/apt/lists/*
