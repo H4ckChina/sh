@@ -38,7 +38,6 @@ function system_commands_menu() {
       # 清理缓存并更新
       sudo apt clean
       sudo rm -rf /var/lib/apt/lists/*
-      sudo apt update
       apt update && apt upgrade -y
       ;;
     2)
