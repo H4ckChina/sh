@@ -40,7 +40,12 @@ function system_commands_menu() {
       ;;
     3)
       echo "正在安装 Masscan..."
-      sudo apt-get install masscan -y
+      sudo apt install -y git make gcc clang libpcap-dev
+      git clone https://github.com/robertdavidgraham/masscan
+      cd masscan
+      make -j$(nproc)  # 多线程编译加速
+      sudo make install
+      masscan --version
       ;;
     4)
       echo "正在安装 Node.js 及 npm..."
