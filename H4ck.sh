@@ -28,9 +28,17 @@ function system_commands_menu() {
       # 示例：以Ubuntu为例，更新系统
       sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
       sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
-      sudo sed -i 's|http://.*archive.ubuntu.com|http://mirrors.aliyun.com/ubuntu|g' /etc/apt/sources.list
-      sudo sed -i 's|http://.*security.ubuntu.com|http://mirrors.aliyun.com/ubuntu|g' /etc/apt/sources.list
+      # 使用正确的阿里云镜像源配置
+      sudo tee /etc/apt/sources.list <<-'EOF'
+      deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+      deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+      deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+      deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+      EOF
+      # 清理缓存并更新
       sudo apt clean
+      sudo rm -rf /var/lib/apt/lists/*
+      sudo apt update
       apt update && apt upgrade -y
       ;;
     2)
