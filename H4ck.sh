@@ -26,9 +26,11 @@ function system_commands_menu() {
     1)
       echo "正在更新系统..."
       # 备份源文件
+      if [ ! -f "/etc/apt/sources.list.bak" ]; then
       sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+      fi
       # 更换软件源
-      sudo bash -c 'cat > /etc/apt/sources.list <<EOF
+      sudo bash -c "cat > /etc/apt/sources.list <<-'EOF'
       ## 默认禁用源码镜像以提高速度，如需启用请自行取消注释
       deb http://mirrors.xtom.hk/ubuntu/ focal main restricted universe multiverse
       # deb-src http://mirrors.xtom.hk/ubuntu/ focal main restricted universe multiverse
@@ -42,11 +44,11 @@ function system_commands_menu() {
       ## 安全更新软件源
       deb http://mirrors.xtom.hk/ubuntu/ focal-security main restricted universe multiverse
       # deb-src http://mirrors.xtom.hk/ubuntu/ focal-security main restricted universe multiverse
-      EOF'
+      EOF"
       # 清理缓存并更新	
-      apt clean
-      rm -rf /var/lib/apt/lists/*
-      apt update && apt upgrade -y
+     sudo apt clean
+     sudo rm -rf /var/lib/apt/lists/*
+     sudo apt update && sudo apt upgrade -y
       ;;
     2)
       echo "正在安装必要组件..."
