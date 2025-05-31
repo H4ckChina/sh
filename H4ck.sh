@@ -46,9 +46,9 @@ sudo tee /etc/apt/sources.list > /dev/null <<EOF
       # deb-src http://mirrors.xtom.hk/ubuntu/ focal-security main restricted universe multiverse
 EOF
       # 清理缓存并更新	
-     sudo apt clean
-     sudo rm -rf /var/lib/apt/lists/*
-     sudo apt update && sudo apt upgrade -y
+      sudo apt clean
+      sudo rm -rf /var/lib/apt/lists/*
+      sudo apt update && sudo apt upgrade -y
       ;;
     2)
       echo "正在安装必要组件..."
