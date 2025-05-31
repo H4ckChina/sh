@@ -25,7 +25,10 @@ function system_commands_menu() {
   case $option in
     1)
       echo "正在更新系统..."
-      bash <(curl -sSL https://raw.githubusercontent.com/SuperManito/LinuxMirrors/main/ChangeMirrors.sh)
+      # 清理缓存并更新	
+      apt clean
+      rm -rf /var/lib/apt/lists/*
+      apt update && apt upgrade -y
       ;;
     2)
       echo "正在安装必要组件..."
