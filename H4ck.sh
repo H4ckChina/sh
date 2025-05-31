@@ -25,18 +25,7 @@ function system_commands_menu() {
   case $option in
     1)
       echo "正在更新系统..."
-      # 示例：以Ubuntu为例，更新系统
-      # 备份原始源列表
-      # sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
-      # 执行全面替换（包括注释行）
-      # sudo sed -i \
-      # -e 's|http://[a-zA-Z0-9.-]*\.archive\.ubuntu\.com/ubuntu/|http://ap-southeast-1.ec2.archive.ubuntu.com/ubuntu/|g' \
-      # -e 's|http://security\.ubuntu\.com/ubuntu|http://ap-southeast-1.ec2.archive.ubuntu.com/ubuntu|g' \
-      # /etc/apt/sources.list
-      # 清理缓存并更新
-      apt clean
-      rm -rf /var/lib/apt/lists/*
-      apt update && apt upgrade -y
+      bash <(curl -sSL https://raw.githubusercontent.com/SuperManito/LinuxMirrors/main/ChangeMirrors.sh)
       ;;
     2)
       echo "正在安装必要组件..."
