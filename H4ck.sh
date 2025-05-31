@@ -80,6 +80,7 @@ function system_commands_menu() {
     7)
       echo "修改系统名称"
       sudo hostnamectl set-hostname H4ck
+      echo -e "\n127.0.0.1 H4ck" | sudo tee -a /etc/hosts
       ;;
     8)
       echo "修改密码"
